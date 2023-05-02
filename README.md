@@ -1,73 +1,68 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<!--
+Referenced By 
+* https://www.readme-templates.com 
+* https://github.com/nhn/tui.editor#readme
+-->
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# ![로고]()
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+![nest -v](https://img.shields.io/badge/NestJS-9.0.0-red) ![typeorm -v](https://img.shields.io/badge/TypeORM-0.3.14-orange) ![typescript -v](https://img.shields.io/badge/Typescript-4.7.4-blue)
 
-## Description
+<!-- 
+서비스 스크린샷
+<img src="cdn url" /> 
+-->
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🌈 롤링 롤링 페이퍼
 
-## Installation
+<!-- 
+> 서비스 슬로건 소개
+ -->
 
-```bash
-$ yarn install
-```
+### 서비스 소개
 
-## Running the app
+<!-- 
+서비스 스크린샷
+프론트 저장소 링크
+랜딩 페이지나 랜딩 디자인(?) 링크.. 
+작성 시 아래 양식대로 추가하기
 
-```bash
-# development
-$ yarn run start
+![markdown](https://user-images.githubusercontent.com/37766175/121464762-71e2fc80-c9ef-11eb-9a0a-7b06e08d3ccb.png)
 
-# watch mode
-$ yarn run start:dev
+**CommonMark + GFM Specifications**
 
-# production mode
-$ yarn run start:prod
-```
+Today *CommonMark* is the de-facto *Markdown* standard. *GFM (GitHub Flavored Markdown)* is another popular specification based on *CommonMark* - maintained by *GitHub*, which is the *Markdown* mostly used. TOAST UI Editor follows both [*CommonMark*](http://commonmark.org/) and [*GFM*](https://github.github.com/gfm/) specifications. Write documents with ease using productive tools provided by TOAST UI Editor and you can easily open the produced document wherever the specifications are supported.
 
-## Test
+* **Live Preview** : Edit Markdown while keeping an eye on the rendered HTML. Your edits will be applied immediately.
+* **Scroll Sync** : Synchronous scrolling between Markdown and Preview. You don't need to scroll through each one separately.
+* **Syntax Highlight** : You can check broken Markdown syntax immediately. 
+-->
 
-```bash
-# unit tests
-$ yarn run test
+### 아키텍처
 
-# e2e tests
-$ yarn run test:e2e
+<!--
+백엔드 애플리케이션 아키텍처 소개
 
-# test coverage
-$ yarn run test:cov
-```
+클린아키텍처 소개
+도메인 소개
+-->
 
-## Support
+## 📦 사용한 패키지
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+<!-- 
+사용한 외부 패키지 목록 
+아래 양식대로 추가
 
-## Stay in touch
+### TOAST UI Editor
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+| Name | Description |
+| --- | --- |
+| [`@toast-ui/editor`](https://github.com/nhn/tui.editor/tree/master/apps/editor) | Plain JavaScript component | -->
 
-## License
+## 🎳 팀 소개
 
-Nest is [MIT licensed](LICENSE).
+- [왕해삼](https://github.com/kkkkkksssssaaaa)
+
+## 📜 License
+
+This software is licensed under the [{Licence}](link)
