@@ -63,10 +63,13 @@
       "ts"
     ],
     "roots": [
-      "<rootDir>"
+      "./src/",
+      "./test/"
     ],
     "modulePaths": [
-      "<rootDir>"
+      "./",
+      "./src/",
+      "./test/"
     ],
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
