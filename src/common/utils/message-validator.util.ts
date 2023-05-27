@@ -1,10 +1,14 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { parse } from 'csv-parse';
+import {
+  ForbiddenWord,
+  forbiddenWordHeader,
+} from '../../forbidden-words/forbidden-words.entity';
+import { ResourceHandler } from '../resources/resource.handler';
 
 export class MessageValidator {
-  private static readonly utf8Encoding: string = 'utf8';
   private static readonly forbiddenWordsFilePath: string =
-    '../resources/forbidden-words.csv';
+    ResourceHandler.getPathOfForbiddenWordFile();
 
   private static readonly forbiddenWords: string[] = this.readFiles();
 
@@ -21,17 +25,27 @@ export class MessageValidator {
   private static readFiles(): string[] {
     const result: string[] = [];
 
-    fs.createReadStream(MessageValidator.forbiddenWordsFilePath)
-      .pipe(parse({ delimiter: ',', from_line: 2 }))
-      .on('data', (row) => {
-        result.push(row);
-      })
-      .on('error', (error) => {
-        console.log(error.message);
-      })
-      .on('end', () => {
-        console.log('Done');
-      });
+    const fileToString: string = fs.readFileSync(
+      MessageValidator.forbiddenWordsFilePath,
+      {
+        encoding: 'utf8',
+      },
+    );
+
+    parse(
+      fileToString,
+      {
+        delimiter: ',',
+        columns: forbiddenWordHeader,
+      },
+      (error, result: ForbiddenWord[]) => {
+        if (error) {
+          console.error(error);
+        }
+
+        console.log('Result', result);
+      },
+    );
 
     return result;
   }
