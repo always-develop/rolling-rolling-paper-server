@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import { parse } from 'csv-parse';
-import { ResourceMetadata } from '../resources/resource-metadata';
+import { ResourceMetadata } from '../resources/resource-metadata.interface';
 
 export function convertStaticCsvFileToObjectArray<T>(
   resource: ResourceMetadata,
