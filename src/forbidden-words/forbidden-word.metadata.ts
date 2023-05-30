@@ -12,14 +12,14 @@ const forbiddenWordHeader: string[] = ['value'];
  * @author 왕해삼(@kkkkkksssssaaaa)
  */
 export class ForbiddenWordMetaData implements ResourceMetadata {
-  protected static readonly path: string = `${ResourceHandler.rootPath()}/forbidden-words.csv`;
+  protected static readonly path: string = `${ResourceHandler.filesRoot()}/forbidden-words.csv`;
 
   public static get(): ForbiddenWordMetaData {
     return new ForbiddenWordMetaData();
   }
 
   colums(): string[] {
-    return Object.assign({}, forbiddenWordHeader);
+    return forbiddenWordHeader;
   }
 
   path(): string {
