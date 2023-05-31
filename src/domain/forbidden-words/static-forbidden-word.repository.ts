@@ -1,23 +1,15 @@
-import { convertStaticCsvFileToObjectArray } from 'src/common/utils/read-file.util';
 import { ForbiddenWordRepository } from './forbidden-word.repository';
 import { ForbiddenWords } from './forbidden-words.entity';
 import { ForbiddenWord } from './forbidden-word.type';
-import { ForbiddenWordMetaData } from './forbidden-word.metadata';
 
 export class StaticForbiddenWordRepository implements ForbiddenWordRepository {
-  private static readonly staticValues = new ForbiddenWords(
-    convertStaticCsvFileToObjectArray<ForbiddenWord>(
-      ForbiddenWordMetaData.get(),
-    ),
-  );
+  constructor(private readonly store: ForbiddenWords) {}
 
   public findAll(): ForbiddenWords {
-    return StaticForbiddenWordRepository.staticValues;
+    return this.store;
   }
 
   public findOne(keyword: string): ForbiddenWord {
-    return StaticForbiddenWordRepository.staticValues
-      .toArray()
-      .find((x) => x.value.includes(keyword));
+    return this.store.toArray().find((x) => x.value.includes(keyword));
   }
 }
