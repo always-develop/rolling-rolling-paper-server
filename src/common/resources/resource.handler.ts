@@ -14,4 +14,8 @@ export class ResourceHandler {
   public static filesRoot(): string {
     return `${ResourceHandler.rootPath()}/files`;
   }
+
+  public static getForbiddenWordPath(): string {
+    return `${ResourceHandler.filesRoot()}/forbidden-words.csv`;
+  }
 }
