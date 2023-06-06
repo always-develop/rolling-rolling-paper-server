@@ -1,6 +1,6 @@
 <!--
-Referenced By 
-* https://www.readme-templates.com 
+Referenced By
+* https://www.readme-templates.com
 * https://github.com/nhn/tui.editor#readme
 -->
 
@@ -8,23 +8,21 @@ Referenced By
 
 ![nest -v](https://img.shields.io/badge/NestJS-9.0.0-red) ![typeorm -v](https://img.shields.io/badge/TypeORM-0.3.14-orange) ![typescript -v](https://img.shields.io/badge/Typescript-4.7.4-blue)
 
-<!-- 
+<!--
 서비스 스크린샷
-<img src="cdn url" /> 
+<img src="cdn url" />
 -->
 
-## 🌈 롤링 롤링 페이퍼
+## 🌈 서비스 소개
 
-<!-- 
+<!--
 > 서비스 슬로건 소개
  -->
 
-### 서비스 소개
-
-<!-- 
+<!--
 서비스 스크린샷
 프론트 저장소 링크
-랜딩 페이지나 랜딩 디자인(?) 링크.. 
+랜딩 페이지나 랜딩 디자인(?) 링크..
 작성 시 아래 양식대로 추가하기
 
 ![markdown](https://user-images.githubusercontent.com/37766175/121464762-71e2fc80-c9ef-11eb-9a0a-7b06e08d3ccb.png)
@@ -35,13 +33,23 @@ Today *CommonMark* is the de-facto *Markdown* standard. *GFM (GitHub Flavored Ma
 
 * **Live Preview** : Edit Markdown while keeping an eye on the rendered HTML. Your edits will be applied immediately.
 * **Scroll Sync** : Synchronous scrolling between Markdown and Preview. You don't need to scroll through each one separately.
-* **Syntax Highlight** : You can check broken Markdown syntax immediately. 
+* **Syntax Highlight** : You can check broken Markdown syntax immediately.
 -->
 
-### 아키텍처
+## 🤖 프로젝트 소개
 
-<!--
-백엔드 애플리케이션 아키텍처 소개
+### 모듈
+
+- `src/commom/resources/resource.handler.ts`
+  - 이 프로젝트에서 다룰 모든 정적 리소스는 resource handler 를 통해 접근할 수 있습니다.
+  - 만약, 정적 리소스를 다루게 된다면 resource handler 를 통해 클라이언트가 접근할 수 있도록 정의합니다.
+
+### 리소스
+
+- 정적 리소스
+  - 이 프로젝트에서 다룰 모든 정적 리소스는 `src/commom/resources/files` 패키지 내부에 존재합니다.
+  <!--
+  백엔드 애플리케이션 아키텍처 소개
 
 클린아키텍처 소개
 도메인 소개
@@ -49,8 +57,8 @@ Today *CommonMark* is the de-facto *Markdown* standard. *GFM (GitHub Flavored Ma
 
 ## 📦 사용한 패키지
 
-<!-- 
-사용한 외부 패키지 목록 
+<!--
+사용한 외부 패키지 목록
 아래 양식대로 추가
 
 ### TOAST UI Editor
