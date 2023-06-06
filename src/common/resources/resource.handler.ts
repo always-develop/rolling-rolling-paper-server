@@ -7,15 +7,10 @@
  * @author 왕해삼(@kkkkkksssssaaaa)
  * */
 export class ResourceHandler {
-  public static rootPath(): string {
-    return __dirname;
-  }
-
-  public static filesRoot(): string {
-    return `${ResourceHandler.rootPath()}/files`;
-  }
+  private static readonly rootPath: string = __dirname;
+  private static readonly filesRoot: string = `${ResourceHandler.rootPath}/files`;
 
   public static getForbiddenWordPath(): string {
-    return `${ResourceHandler.filesRoot()}/forbidden-words.csv`;
+    return `${ResourceHandler.filesRoot}/forbidden-words.csv`;
   }
 }
