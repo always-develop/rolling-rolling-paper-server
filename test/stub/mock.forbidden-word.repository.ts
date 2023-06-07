@@ -15,6 +15,12 @@ export const mockForbiddenWords: ForbiddenWords =
   ]);
 
 export class MockForbiddenWordRepopsitory implements ForbiddenWordRepository {
+  private constructor(private readonly store: ForbiddenWords) {}
+
+  public static initialize(store: ForbiddenWords = mockForbiddenWords) {
+    return new MockForbiddenWordRepopsitory(store);
+  }
+
   public findAll(): ForbiddenWords {
     return mockForbiddenWords;
   }
