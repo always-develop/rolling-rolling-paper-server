@@ -12,7 +12,7 @@ const mockForbiddenWords = ForbiddenWords.initializeArrayOfForbiddenWord([
   },
 ]);
 
-describe('ForbiddenWords.isContainThis', () => {
+describe('ForbiddenWords.includedInThisText', () => {
   test('인자로 금칙어를 넘기면 true 를 반환한다', () => {
     expect(mockForbiddenWords.includedInThisText('금칙어1')).toBeTruthy();
   });
