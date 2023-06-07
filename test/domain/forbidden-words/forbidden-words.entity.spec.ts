@@ -1,16 +1,4 @@
-import { ForbiddenWords } from 'src/domain/forbidden-words/forbidden-words.entity';
-
-const mockForbiddenWords = ForbiddenWords.initializeArrayOfForbiddenWord([
-  {
-    value: '금칙어1',
-  },
-  {
-    value: '금칙어2',
-  },
-  {
-    value: '금칙어3',
-  },
-]);
+import { mockForbiddenWords } from 'test/stub/mock.forbidden-word.repository';
 
 describe('ForbiddenWords.includedInThisText', () => {
   test('인자로 금칙어를 넘기면 true 를 반환한다', () => {

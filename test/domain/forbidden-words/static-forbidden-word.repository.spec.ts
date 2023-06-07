@@ -1,17 +1,5 @@
-import { ForbiddenWords } from 'src/domain/forbidden-words/forbidden-words.entity';
+import { mockForbiddenWords } from 'test/stub/mock.forbidden-word.repository';
 import { StaticForbiddenWordRepository } from '../../../src/domain/forbidden-words/static-forbidden-word.repository';
-
-const mockForbiddenWords = ForbiddenWords.initializeArrayOfForbiddenWord([
-  {
-    value: '금칙어1',
-  },
-  {
-    value: '금칙어2',
-  },
-  {
-    value: '금칙어3',
-  },
-]);
 
 describe('StaticForbiddenWordRepository', () => {
   test('임의의 금칙어 목록으로 초기화할 수 있다', () => {
