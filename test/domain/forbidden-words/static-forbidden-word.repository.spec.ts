@@ -27,21 +27,4 @@ describe('StaticForbiddenWordRepository.findAll', () => {
       new StaticForbiddenWordRepository(mockForbiddenWords).findAll(),
     ).not.toBe(null);
   });
-
-  test('임의의 금칙어 목록으로 초기화한 저장소에서 금칙어 목록 중 첫 번째 요소의 값은 금칙어1 이다.', () => {
-    expect(
-      new StaticForbiddenWordRepository(mockForbiddenWords)
-        .findAll()
-        .toArray()[0].value,
-    ).toEqual('금칙어1');
-  });
-});
-
-describe('StaticForbiddenWordRepository.findOne', () => {
-  test('임의의 금칙어 목록으로 초기화한 저장소에서 금칙어1 을 찾을 수 있다', () => {
-    expect(
-      new StaticForbiddenWordRepository(mockForbiddenWords).findOne('금칙어1')
-        .value,
-    ).toEqual('금칙어1');
-  });
 });

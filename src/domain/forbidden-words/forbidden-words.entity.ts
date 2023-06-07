@@ -21,10 +21,6 @@ export class ForbiddenWords {
   }
 
   public includedInThisText(value: string): boolean {
-    return this.toArray().some((word) => value.includes(word.value));
-  }
-
-  public toArray(): ForbiddenWord[] {
-    return this.values;
+    return this.values.some((word) => value.includes(word.value));
   }
 }
