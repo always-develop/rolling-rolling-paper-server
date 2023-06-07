@@ -20,7 +20,7 @@ export class ForbiddenWords {
     return new ForbiddenWords(values);
   }
 
-  public isContainThis(value: string): boolean {
+  public includedInThisText(value: string): boolean {
     return this.toArray().some((word) => value.includes(word.value));
   }
 
