@@ -8,8 +8,10 @@ export class MessageValidator {
     this.repository = repository;
   }
 
-  public static check(): MessageValidator {
-    return new MessageValidator(StaticForbiddenWordRepository.getInstance());
+  public static setRepository(
+    repository: ForbiddenWordRepository = StaticForbiddenWordRepository.getInstance(),
+  ): MessageValidator {
+    return new MessageValidator(repository);
   }
 
   public containForbiddenWord(message: string): void {
