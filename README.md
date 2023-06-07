@@ -48,9 +48,14 @@ Today *CommonMark* is the de-facto *Markdown* standard. *GFM (GitHub Flavored Ma
 
 - 정적 리소스
   - 이 프로젝트에서 다룰 모든 정적 리소스는 `src/commom/resources/files` 패키지 내부에 존재합니다.
-  <!--
-  백엔드 애플리케이션 아키텍처 소개
 
+### 테스트
+
+- 일부, 외부의 데이터를 참고해야 하는 경우에는 미리 구현한 Mock 파일을 제공하며, 대상은 아래와 같습니다. 모든 테스트 리소스는 `test/stub` 패키지에 존재합니다.
+  - `ForbiddenWordRepository`
+
+<!--
+백엔드 애플리케이션 아키텍처 소개
 클린아키텍처 소개
 도메인 소개
 -->
