@@ -1,13 +1,23 @@
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { User } from 'src/domain/user.entity';
+import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
+import { User } from 'src/domain/user/user.entity';
 
-export const typeORMConfig: TypeOrmModuleOptions = {
-  type: 'postgres',
-  host: process.env.DB_HOST,
-  port: Number(process.env.DB_PORT),
-  username: process.env.DB_USER,
-  database: 'rolling_rolling',
-  password: process.env.DB_PASSWORD,
-  entities: [User],
-  synchronize: true,
-};
+@Injectable()
+export class TypeOrmConfig implements TypeOrmOptionsFactory {
+  constructor(private readonly systemProperty: ConfigService) {}
+
+  createTypeOrmOptions(): TypeOrmModuleOptions {
+    return {
+      type: 'postgres',
+      host: this.systemProperty.get('DB_HOST'),
+      port: this.systemProperty.get<number>('DB_PORT'),
+      username: this.systemProperty.get('DB_USERNAME'),
+      database: this.systemProperty.get('DB_DATABASE'),
+      password: this.systemProperty.get('DB_PASSWORD'),
+      synchronize: this.systemProperty.get<boolean>('DB_SYNCHRONIZE'),
+      logging: this.systemProperty.get('DB_LOGGING'),
+      entities: [User],
+    };
+  }
+}
