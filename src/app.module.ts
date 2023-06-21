@@ -1,17 +1,21 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { typeORMConfig } from './common/config/typeorm.config';
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmConfigModule } from './common/config/typeorm-config.module';
+import { TypeOrmConfig } from './common/config/typeorm.config';
 
 @Module({
+  controllers: [],
   imports: [
     ConfigModule.forRoot({
-      cache: true,
       isGlobal: true,
+      envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    TypeOrmModule.forRoot(typeORMConfig),
+    TypeOrmModule.forRootAsync({
+      imports: [TypeOrmConfigModule],
+      inject: [TypeOrmConfig],
+      useClass: TypeOrmConfig,
+    }),
   ],
-  controllers: [],
-  providers: [],
 })
 export class AppModule {}
