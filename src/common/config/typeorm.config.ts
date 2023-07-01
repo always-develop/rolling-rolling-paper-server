@@ -7,7 +7,7 @@ import { User } from 'src/domain/user/user.entity';
 export class TypeOrmConfig implements TypeOrmOptionsFactory {
   constructor(private readonly systemProperty: ConfigService) {}
 
-  createTypeOrmOptions(): TypeOrmModuleOptions {
+  public createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
       type: 'postgres',
       host: this.systemProperty.get('DB_HOST'),
