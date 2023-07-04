@@ -19,11 +19,9 @@ export class HttpHeader {
     ]);
   }
 
-  public get() {
-    return this.header.map((x) => {
-      return {
-        [x.key.toString()]: x.value.toString(),
-      };
-    });
+  public get(): RawAxiosRequestHeaders {
+    return {
+      'Content-Type': 'application/json',
+    };
   }
 }
