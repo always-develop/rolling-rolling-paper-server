@@ -2,7 +2,6 @@ import { HttpModule, HttpService } from '@nestjs/axios';
 import { CustomHttpFactory } from './custom-http.factory';
 import { Module } from '@nestjs/common';
 import { HttpHeader } from './http-header.model';
-import e from 'express';
 
 @Module({
   imports: [
