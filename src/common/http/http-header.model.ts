@@ -21,7 +21,8 @@ export class HttpHeader {
 
   public get(): RawAxiosRequestHeaders {
     return {
-      'Content-Type': 'application/json',
+      [`${HttpHeaderKey.CONTENT_TYPE.toString()}`]:
+        HttpHeaderValue.APPLICATION_JSON.toString(),
     };
   }
 }
