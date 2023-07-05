@@ -4,7 +4,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class CustomHttpFactory implements HttpModuleAsyncOptions {
-  private constructor(private readonly systemProperty: ConfigService) {}
+  constructor(private readonly systemProperty: ConfigService) {}
 
   public useFactory(): HttpModuleOptions {
     return {
