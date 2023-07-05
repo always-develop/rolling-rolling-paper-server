@@ -7,6 +7,10 @@ import { HttpHeader } from './http-header.model';
   imports: [
     HttpModule.registerAsync({
       inject: [CustomHttpFactory],
+      extraProviders: [CustomHttpFactory],
+      useFactory: (factory: CustomHttpFactory) => {
+        return factory.useFactory();
+      },
     }),
   ],
 })
