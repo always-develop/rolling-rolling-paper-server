@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmConfigModule } from './common/config/typeorm-config.module';
 import { TypeOrmConfig } from './common/config/typeorm.config';
 import { HttpClient } from './common/http/custom-http.module';
+import { AuthenticationModule } from './common/authentication/authentication.module';
 
 @Module({
   controllers: [],
@@ -18,6 +19,7 @@ import { HttpClient } from './common/http/custom-http.module';
       useClass: TypeOrmConfig,
     }),
     HttpClient,
+    AuthenticationModule,
   ],
 })
 export class AppModule {}
