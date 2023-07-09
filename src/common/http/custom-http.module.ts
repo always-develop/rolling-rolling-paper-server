@@ -13,6 +13,7 @@ import { HttpHeader } from './http-header.model';
       },
     }),
   ],
+  exports: [HttpClient],
 })
 export class HttpClient {
   constructor(private readonly httpService: HttpService) {}
