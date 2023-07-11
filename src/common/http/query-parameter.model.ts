@@ -1,3 +1,4 @@
+import { StringIsMustBeNotEmptyError } from '../exceptions/string-must-be-not-empty.error';
 import { QueryParameterType } from './query-parameter.type';
 
 export class QueryParameter {
@@ -25,11 +26,11 @@ export class QueryParameter {
 
   private ifEmptyThrowException(target: string): void {
     if (null === target) {
-      throw new Error('query parameter is must be not null');
+      throw new StringIsMustBeNotEmptyError();
     }
 
     if (target.length === 0) {
-      throw new Error('query parameter is must be not empty');
+      throw new StringIsMustBeNotEmptyError();
     }
   }
 }
