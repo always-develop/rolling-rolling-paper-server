@@ -2,7 +2,7 @@ import { StringIsMustBeNotEmptyError } from '../exceptions/string-must-be-not-em
 import { QueryParameterType } from './query-parameter.type';
 
 export class QueryParameter {
-  private params: QueryParameterType[];
+  private params: QueryParameterType[] = [];
 
   public static builder(): QueryParameter {
     return new QueryParameter();
@@ -13,7 +13,9 @@ export class QueryParameter {
   }
 
   public toString(): string {
-    return '?' + this.params.map((param) => param.key).join(',');
+    return (
+      '?' + this.params.map((param) => `${param.key}=${param.value}`).join('&')
+    );
   }
 
   private append(key: string, value: string): QueryParameter {
@@ -24,7 +26,7 @@ export class QueryParameter {
     return this;
   }
 
-  private ifEmptyThrowException(target: string): void {
+  private ifEmptyThrowException(target?: string): void {
     if (null === target) {
       throw new StringIsMustBeNotEmptyError();
     }
