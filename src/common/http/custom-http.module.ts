@@ -2,6 +2,7 @@ import { HttpModule, HttpService } from '@nestjs/axios';
 import { CustomHttpFactory } from './custom-http.factory';
 import { Module } from '@nestjs/common';
 import { HttpHeader } from './http-header.model';
+import { QueryParameter } from './query-parameter.model';
 
 @Module({
   imports: [
@@ -18,9 +19,9 @@ import { HttpHeader } from './http-header.model';
 export class HttpClient {
   constructor(private readonly httpService: HttpService) {}
 
-  public get<T>(url: string): Promise<T> {
+  public get<T>(url: string, queryParameter?: QueryParameter): Promise<T> {
     return this.httpService.axiosRef
-      .get(url, {
+      .get(`${url}${queryParameter.toString()}`, {
         headers: HttpHeader.default().get(),
       })
       .then((v) => v.data)
