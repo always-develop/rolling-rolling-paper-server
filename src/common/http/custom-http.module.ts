@@ -1,8 +1,7 @@
 import { HttpModule, HttpService } from '@nestjs/axios';
 import { CustomHttpFactory } from './custom-http.factory';
 import { Module } from '@nestjs/common';
-import { HttpHeader } from './http-header.model';
-import { QueryParameter } from './query-parameter.model';
+import { HttpRequest } from './http-request.model';
 
 @Module({
   imports: [
@@ -19,11 +18,26 @@ import { QueryParameter } from './query-parameter.model';
 export class HttpClient {
   constructor(private readonly httpService: HttpService) {}
 
-  public get<T>(url: string, queryParameter?: QueryParameter): Promise<T> {
+  public get<T>(request: HttpRequest): Promise<T> {
     return this.httpService.axiosRef
-      .get(`${url}${queryParameter.toString()}`, {
-        headers: HttpHeader.default().get(),
+      .get(`${request.getUrl()}${request.getQueryParameter().toString()}`, {
+        headers: request.getHeader().toAxiosHeader(),
       })
+      .then((v) => v.data)
+      .catch((err) => {
+        throw new Error(err);
+      });
+  }
+
+  public post<T>(request: HttpRequest): Promise<T> {
+    return this.httpService.axiosRef
+      .post(
+        `${request.getUrl()}${request.getQueryParameter().toString()}`,
+        request.getBodyParameter(),
+        {
+          headers: request.getHeader().toAxiosHeader(),
+        },
+      )
       .then((v) => v.data)
       .catch((err) => {
         throw new Error(err);
