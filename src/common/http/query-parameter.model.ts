@@ -19,20 +19,25 @@ export class QueryParameter {
   }
 
   private append(key: string, value: string): QueryParameter {
-    this.ifEmptyThrowException(key);
-    this.ifEmptyThrowException(value);
+    this.ifEmptyThrowException(key, value);
 
     this.params.push({ key, value });
     return this;
   }
 
-  private ifEmptyThrowException(target?: string): void {
-    if (null === target) {
+  private ifEmptyThrowException(...targets: string[]): void {
+    if (null === targets) {
       throw new StringIsMustBeNotEmptyError();
     }
 
-    if (target.length === 0) {
+    if (targets.length === 0) {
       throw new StringIsMustBeNotEmptyError();
     }
+
+    targets.forEach((target) => {
+      if (target.length === 0) {
+        throw new StringIsMustBeNotEmptyError();
+      }
+    });
   }
 }
