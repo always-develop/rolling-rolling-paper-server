@@ -4,7 +4,7 @@ import { HttpHeaderKey } from './http-header-key.enum';
 import { HttpHeaderValue } from './http-header-value.enum';
 
 export class HttpHeader {
-  private readonly header: HeaderItem[];
+  private header: HeaderItem[];
 
   private constructor(value: HeaderItem[]) {
     this.header = value;
@@ -19,10 +19,20 @@ export class HttpHeader {
     ]);
   }
 
-  public get(): RawAxiosRequestHeaders {
-    return {
-      [`${HttpHeaderKey.CONTENT_TYPE.toString()}`]:
-        HttpHeaderValue.APPLICATION_JSON.toString(),
-    };
+  public static builder(): HttpHeader {
+    return new HttpHeader([]);
+  }
+
+  public appendKeyValue(key: HttpHeaderKey, value: HttpHeaderValue | string) {
+    this.header.push({ key, value });
+    return this;
+  }
+
+  public toAxiosHeader(): RawAxiosRequestHeaders {
+    const result: RawAxiosRequestHeaders = {};
+
+    this.header.forEach((v) => (result[v.key.toString()] = v.value.toString()));
+
+    return result;
   }
 }
