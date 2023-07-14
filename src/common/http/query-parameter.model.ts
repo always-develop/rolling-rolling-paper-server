@@ -8,11 +8,19 @@ export class QueryParameter {
     return new QueryParameter();
   }
 
+  public static default(): QueryParameter {
+    return new QueryParameter();
+  }
+
   public appendKeyValue(key: string, value: string): QueryParameter {
     return this.append(key, value);
   }
 
   public toString(): string {
+    if (this.params.length === 0) {
+      return '';
+    }
+
     return (
       '?' + this.params.map((param) => `${param.key}=${param.value}`).join('&')
     );
