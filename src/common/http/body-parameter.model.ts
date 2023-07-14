@@ -8,11 +8,19 @@ export class BodyParameter {
     return new BodyParameter();
   }
 
+  public static default(): BodyParameter {
+    return new BodyParameter();
+  }
+
   public appendKeyValue(key: string, value: string): BodyParameter {
     return this.append(key, value);
   }
 
   public toString(): string {
+    if (this.params.length === 0) {
+      return '';
+    }
+
     return (
       '?' + this.params.map((param) => `${param.key}=${param.value}`).join('&')
     );
