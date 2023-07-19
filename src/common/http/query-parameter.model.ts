@@ -38,11 +38,11 @@ export class QueryParameter {
       throw new StringIsMustBeNotEmptyError();
     }
 
-    if (targets.length === 0) {
-      throw new StringIsMustBeNotEmptyError();
-    }
-
     targets.forEach((target) => {
+      if (null === target) {
+        throw new StringIsMustBeNotEmptyError();
+      }
+
       if (target.length === 0) {
         throw new StringIsMustBeNotEmptyError();
       }
