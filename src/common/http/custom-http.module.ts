@@ -20,8 +20,8 @@ export class HttpClient {
 
   public get<T>(request: HttpRequest): Promise<T> {
     return this.httpService.axiosRef
-      .get(`${request.getUrl()}${request.getQueryParameter().toString()}`, {
-        headers: request.getHeader().toAxiosHeader(),
+      .get(`${request.url}${request.queryParameter.toString()}`, {
+        headers: request.header.toAxiosHeader(),
       })
       .then((v) => v.data)
       .catch((err) => {
@@ -32,10 +32,10 @@ export class HttpClient {
   public post<T>(request: HttpRequest): Promise<T> {
     return this.httpService.axiosRef
       .post(
-        `${request.getUrl()}${request.getQueryParameter().toString()}`,
-        request.getBodyParameter(),
+        `${request.url}${request.queryParameter.toString()}`,
+        request.bodyParameter,
         {
-          headers: request.getHeader().toAxiosHeader(),
+          headers: request.header.toAxiosHeader(),
         },
       )
       .then((v) => v.data)
