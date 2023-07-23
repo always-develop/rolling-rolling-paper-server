@@ -36,8 +36,6 @@ export class AuthenticationService {
           ),
       })
       .then((v) => {
-        console.log(`response=${v}`);
-
         return {
           accessToken: String(v.data.access_token),
           refreshToken: String(v.data.refresh_token),
