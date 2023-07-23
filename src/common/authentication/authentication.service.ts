@@ -41,9 +41,10 @@ export class AuthenticationService {
         }),
       )
       .then((v) => {
+        console.log(v);
         return {
-          accessToken: String(v.data.access_token),
-          refreshToken: String(v.data.refresh_token),
+          accessToken: String(v.access_token),
+          refreshToken: String(v.refresh_token),
         };
       })
       .catch((err) => console.log(err));
