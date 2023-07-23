@@ -1,19 +1,18 @@
 import { BodyParameter } from './body-parameter.model';
 import { HttpHeader } from './http-header.model';
+import { HttpHeaderOption } from './http-request.option';
 import { QueryParameter } from './query-parameter.model';
 
 export class HttpRequest {
-  constructor(
-    readonly url: string,
-    readonly header?: HttpHeader,
-    readonly queryParameter?: QueryParameter,
-    readonly bodyParameter?: BodyParameter,
-  ) {
-    this.url = url;
-    this.header = header === undefined ? HttpHeader.default() : header;
-    this.queryParameter =
-      queryParameter === undefined ? QueryParameter.default() : queryParameter;
-    this.bodyParameter =
-      bodyParameter === undefined ? BodyParameter.default() : bodyParameter;
+  public readonly url: string;
+  public readonly header: HttpHeader;
+  public readonly queryParameter: QueryParameter;
+  public readonly bodyParameter: BodyParameter;
+
+  constructor(option: HttpHeaderOption) {
+    this.url = option.url;
+    this.header = option.header || HttpHeader.default();
+    this.queryParameter = option.queryParameter || QueryParameter.default();
+    this.bodyParameter = option.bodyParameter || BodyParameter.default();
   }
 }
