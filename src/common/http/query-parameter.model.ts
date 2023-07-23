@@ -34,12 +34,21 @@ export class QueryParameter {
   }
 
   private ifEmptyThrowException(...targets: string[]): void {
+    console.dir(targets);
     if (null === targets) {
+      throw new StringIsMustBeNotEmptyError();
+    }
+
+    if (targets.length === 0) {
       throw new StringIsMustBeNotEmptyError();
     }
 
     targets.forEach((target) => {
       if (null === target) {
+        throw new StringIsMustBeNotEmptyError();
+      }
+
+      if (undefined === target) {
         throw new StringIsMustBeNotEmptyError();
       }
 
