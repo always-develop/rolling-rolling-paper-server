@@ -14,6 +14,8 @@ export class JwtKakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
   async validate(accessToken: string, refreshToken: string, profile: any) {
     // TODO: define do something...
     return {
+      accessToken: accessToken,
+      refreshToken: refreshToken,
       name: profile.displayName,
     };
   }
