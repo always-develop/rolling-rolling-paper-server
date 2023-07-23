@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { HttpClient } from '../http/custom-http.module';
-import { Token } from '../http/token.type';
 import { QueryParameter } from '../http/query-parameter.model';
 import { ConfigService } from '@nestjs/config';
 
@@ -20,19 +19,25 @@ export class AuthenticationService {
       .catch((err) => console.log(err));
   }
 
-  public getKakaoToken(code: string, redirectUrl: string) {
+  public getTokenByCode(code: string) {
     return this.httpClient
       .post<any>({
         url: this.systemProperty.get('OAUTH_KAKAO_TOKEN_URL'),
         queryParameter: QueryParameter.builder()
+          .appendKeyValue('code', code)
           .appendKeyValue('grant_type', 'authorization_code')
-          .appendKeyValue('redirect_url', redirectUrl)
+          .appendKeyValue(
+            'redirect_url',
+            this.systemProperty.get('OAUTH_KAKAO_REDIRECT'),
+          )
           .appendKeyValue(
             'client_id',
             this.systemProperty.get('OAUTH_KAKAO_CLIENT_ID'),
           ),
       })
       .then((v) => {
+        console.log(`response=${v}`);
+
         return {
           accessToken: String(v.data.access_token),
           refreshToken: String(v.data.refresh_token),
