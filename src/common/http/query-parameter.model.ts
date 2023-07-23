@@ -34,7 +34,6 @@ export class QueryParameter {
   }
 
   private ifEmptyThrowException(...targets: string[]): void {
-    console.dir(targets);
     if (null === targets) {
       throw new StringIsMustBeNotEmptyError();
     }
