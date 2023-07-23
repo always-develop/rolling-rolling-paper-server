@@ -1,4 +1,4 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Query, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthenticationService } from './authentication.service';
 import { Request } from 'express';
@@ -14,7 +14,7 @@ export class AuthenticationController {
   }
 
   @Get('/kakao/login')
-  public kakaoLoginCallBack(@Req() code: string) {
+  public kakaoLoginCallBack(@Query('code') code: string) {
     return this.service.getTokenByCode(code);
   }
 }
