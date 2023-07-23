@@ -41,7 +41,7 @@ export class AuthenticationService {
         }),
       )
       .then((v) => {
-        console.log(v);
+        // TODO: return for service token
         return {
           accessToken: String(v.access_token),
           refreshToken: String(v.refresh_token),
